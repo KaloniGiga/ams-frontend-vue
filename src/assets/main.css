@@ -1,9 +1,7 @@
 @import './base.css';
 
 #app {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
+  min-height: 100vh;
   font-weight: normal;
 }
 
@@ -15,21 +13,34 @@ a,
   padding: 3px;
 }
 
-@media (hover: hover) {
-  a:hover {
-    background-color: hsla(160, 100%, 37%, 0.2);
-  }
+input {
+  width: 100%;
+  display: inline-block;
+  margin: 5px 0px;
+  padding: 5px 5px;
+  outline: none;
+  border-radius: 4px;
+  border: 1px solid rgba(0,0,0,0.5);
 }
 
-@media (min-width: 1024px) {
-  body {
-    display: flex;
-    place-items: center;
-  }
+input:focus {
+  outline: 1px solid rgba(255, 0, 34, 0.842);
+}
 
-  #app {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    padding: 0 2rem;
-  }
+label {
+  font-size: 16px;
+  font-weight: 600;
+  margin: 5px 0px;
+}
+
+.submitBtn {
+  margin: 10px 0px;
+  padding: 7px 0px;
+  font-size: 15px;
+  font-weight: 600; 
+  background-color: rgba(255, 0, 34, 0.842);
+  color: rgba(255,255,255,0.9);
+  outline: none;
+  border: none;
+  border-radius: 5px;
 }

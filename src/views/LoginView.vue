@@ -7,22 +7,39 @@ const handleFormSubmit = async (event) => {
 
 </script>
 <template>
-    <div :class="container">
-       <form @submit.prevent="handleFormSubmit">
-          <label for="email">Email</label>
-          <input type="text" name="email">
+    <div class="container">
+       <form class="authForm" @submit.prevent="handleFormSubmit">
+          
+          <h1 class="formHeading">Welcome Back! Login to continue</h1>
+          <label for="email" >Email</label>
+          <input type="text" class="input" name="email">
            
           <label>Password</label>
-          <input type="password" name="password">
+          <input type="password" class="input" name="password">
+
+          <button class="submitBtn">Submit</button>
        </form>        
     </div>
 </template>
 <style scoped>
  .container {
-    width: "100%";
-    height: "100%";
-    display: "flex";
-    justify-content: "center";
-    align-items: "center";
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+ }
+
+.formHeading {
+   margin: 10px 0px;
+}
+
+ .authForm {
+   padding: 20px;
+   border-radius: 5px;
+   display: flex;
+   flex-direction: column;
+
+   border: 1px solid rgba(0, 0, 0, 0.1);
  }
 </style>
