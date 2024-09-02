@@ -1,5 +1,11 @@
 <script setup>
 import { ref, computed } from 'vue'
+import { useRouter } from 'vue-router'
+import useAuthStore from '../stores/auth.js'
+
+const router = useRouter()
+const authStore = useAuthStore()
+
 const form = {
   first_name: ref(''),
   last_name: ref(''),
@@ -29,7 +35,7 @@ const validateField = (field) => {
   }
 
   if (field === 'last_name' && !isLastnameValue.value) {
-    console.log(field , isLastnameValue.value);  
+    console.log(field, isLastnameValue.value)
     errors.value.last_name = 'Lastname is required.'
   }
 
@@ -58,18 +64,24 @@ const validateField = (field) => {
   }
 }
 const handleFormSubmit = async (event) => {
-  validateField("first_name");
-  validateField("last_name");
-  validateField("email");
-  validateField("password");
+  validateField('first_name')
+  validateField('last_name')
+  validateField('email')
+  validateField('password')
 
-  validateField("phone");
-  validateField("dob");
-  validateField("gender");
-  validateField("address");
+  validateField('phone')
+  validateField('dob')
+  validateField('gender')
+  validateField('address')
   const form = event.target
   const formData = new FormData(form)
-  console.log(formData)
+
+  const response = authStore.register(formData)
+  if (response?.error) {
+    console.log(response.error)
+  } else {
+    router.push('/')
+  }
 }
 </script>
 <template>
@@ -97,7 +109,6 @@ const handleFormSubmit = async (event) => {
             v-model="form.last_name.value"
             name="last_name"
             @blur="validateField('last_name')"
-
           />
 
           <span class="error" v-if="errors.last_name">{{ errors.last_name }}</span>
