@@ -1,5 +1,5 @@
 <script setup>
-import DashboardLayout from '@/layouts/DashboardLayout.vue';
+import DashboardLayout from '@/layouts/MainLayout.vue';
 import { Button } from '@/components/ui/button';
 </script>
 <template>
