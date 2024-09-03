@@ -15,14 +15,15 @@ const useAuthStore = defineStore('auth', () => {
       console.log(Object.fromEntries(formData))
       const params = Object.fromEntries(formData)
 
-      const response = await fetch(`${API_URL}/user/login`, {
+      const response = await fetch(`${API_URL}/login`, {
         method: 'POST',
-        body: JSON.stringify(params),
+        body: JSON.stringify({ user: params }),
         headers: { 'Content-Type': 'application/json' }
       })
 
       const isSuccessfull = response.ok
       const data = await response.json()
+      console.log(data)
 
       if (!isSuccessfull) {
         throw new Error(data.messages)
@@ -39,17 +40,19 @@ const useAuthStore = defineStore('auth', () => {
   const register = async (formData) => {
     try {
       const params = Object.entries(formData)
-      const response = await fetch(`${API_URL}/user/register`, {
+      const response = await fetch(`${API_URL}/signup`, {
         method: 'POST',
-        body: JSON.stringify(params),
+        body: JSON.stringify({ user: params }),
         headers: { 'Content-Type': 'application/json' }
       })
 
       const isSuccessfull = response.ok
       const data = await response.json()
+      console.log(data); 
       if (!isSuccessfull) {
         throw new Error(data.messages)
       }
+
     } catch (error) {
       return { error }
     }
@@ -62,7 +65,7 @@ const useAuthStore = defineStore('auth', () => {
 
     if (tokenExist) {
       try {
-        const response = await fetch(`${API_URL}/user/validate`, {
+        const response = await fetch(`${API_URL}/login`, {
           headers: { Authorization: token }
         })
 

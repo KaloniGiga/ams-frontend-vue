@@ -2,6 +2,7 @@
 import { ref, computed } from 'vue'
 import { useRouter } from 'vue-router'
 import useAuthStore from '../stores/auth.js'
+import { Button } from '@/components/ui/button/index.js';
 
 const router = useRouter()
 const authStore = useAuthStore()
@@ -59,7 +60,8 @@ const handleFormSubmit = async (event) => {
       <input type="password" class="input" name="password" v-model="form.password.value" />
       <span class="error" v-if="errors.password">{{ errors.password }}</span>
 
-      <button class="submitBtn">Submit</button>
+      <!-- <button class="submitBtn">Submit</button> -->
+       <Button></Button>
 
       <p>Don't have a account? <RouterLink to="/register">Register</RouterLink></p>
     </form>
