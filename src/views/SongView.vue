@@ -2,5 +2,5 @@
 import { Button } from '@/components/ui/button';
 </script>
 <template>
-    <Button>User View</Button> 
+    <Button>Song View</Button> 
 </template>

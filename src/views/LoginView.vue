@@ -49,7 +49,6 @@ const handleFormSubmit = async (event) => {
 </script>
 
 <template>
-  <div class="container">
     <form class="authForm" @submit.prevent="handleFormSubmit">
       <h1 class="formHeading">Welcome Back! Login</h1>
       <label for="email">Email</label>
@@ -65,7 +64,6 @@ const handleFormSubmit = async (event) => {
 
       <p>Don't have a account? <RouterLink to="/register">Register</RouterLink></p>
     </form>
-  </div>
 </template>
 <style scoped>
 p {

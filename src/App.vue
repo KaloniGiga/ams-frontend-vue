@@ -7,5 +7,3 @@ import { Toaster } from './components/ui/sonner';
   <RouterView />
   <Toaster />
 </template>
-
-<style scoped></style>
