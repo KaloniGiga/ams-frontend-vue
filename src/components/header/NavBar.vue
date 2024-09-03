@@ -7,7 +7,7 @@ import Button from '../ui/button/Button.vue';
        <nav class="hidden w-[1/4] lg:flex justify-between gap-x-4 md:gap-x-8 lg:gap-x-16 items-center">
         <Routerlink class="text-[black] font-lg font-bold italic">AMS</Routerlink>
        <div class="flex gap-x-4 text-sm">
-        <RouterLink to="/dashboard" class="text-[black] text-sm italic">User</RouterLink>
+        <RouterLink to="/dashboard/user" class="text-[black] text-sm italic">User</RouterLink>
         <RouterLink to="/dashboard/artist" class="text-[black] text-sm italic">Artist</RouterLink>
        </div>
      </nav>
