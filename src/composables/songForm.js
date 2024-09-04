@@ -7,17 +7,17 @@ export function useSongForm() {
     z.object({
       title: z.string().min(2).max(50).default(''),
       album_name: z.string().min(2).max(50).default(''),
-      genre: z.enum(['rock', 'country', 'jazz', 'classic', 'rnb']),
+      genre: z.enum(['rock', 'country', 'jazz', 'classic', 'rnb'])
     })
   )
 
   const { handleSubmit, values } = useForm({
-    validationSchema: formSchema,
+    validationSchema: formSchema
   })
 
   const onSubmit = handleSubmit((values) => {
     console.log(values)
   })
 
-  return { formSchema, onSubmit, values}
+  return { formSchema, onSubmit, values }
 }

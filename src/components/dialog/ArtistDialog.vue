@@ -1,6 +1,6 @@
 <script setup>
 import { DialogContent, DialogHeader, DialogTitle } from '@/components/ui/dialog'
-import ArtistForm from '../form/ArtistForm.vue';
+import ArtistForm from '../form/ArtistForm.vue'
 
 defineProps({
   isEdit: Boolean
@@ -14,4 +14,3 @@ defineProps({
     <ArtistForm />
   </DialogContent>
 </template>
-

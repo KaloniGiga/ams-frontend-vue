@@ -1,6 +1,6 @@
 <script setup>
 import { DialogContent, DialogHeader, DialogTitle } from '@/components/ui/dialog'
-import SongForm from '../form/SongForm.vue';
+import SongForm from '../form/SongForm.vue'
 
 defineProps({
   isEdit: Boolean

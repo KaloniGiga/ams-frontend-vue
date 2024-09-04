@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import DataTable from '@/components/core/data-table/DataTable.vue'
 import Card from '@/components/ui/card/Card.vue'
 import CardContent from '@/components/ui/card/CardContent.vue'
 import CardDescription from '@/components/ui/card/CardDescription.vue'
@@ -6,6 +7,7 @@ import CardHeader from '@/components/ui/card/CardHeader.vue'
 import CardTitle from '@/components/ui/card/CardTitle.vue'
 
 defineProps({
+  columns: { type: Object },
   title: { type: String, required: true },
   description: { type: String, required: true }
 })
@@ -20,6 +22,8 @@ defineProps({
       </div>
       <slot></slot>
     </CardHeader>
-    <CardContent> No found. </CardContent>
+    <CardContent>
+     <DataTable :data="[]" :columns="columns" /> 
+    </CardContent>
   </Card>
 </template>
