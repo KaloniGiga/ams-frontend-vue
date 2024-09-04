@@ -14,5 +14,5 @@ app.use(createPinia())
 // useAuthStore()
 //   .validateUser()
 //   .then(() => {
-    app.use(router).mount('#app')
-  // })
+app.use(router).mount('#app')
+// })

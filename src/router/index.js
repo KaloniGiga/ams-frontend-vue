@@ -27,12 +27,12 @@ const router = createRouter({
         {
           path: 'login',
           name: 'login',
-          component: LoginView,
+          component: LoginView
         },
         {
           path: 'signup',
           name: 'signup',
-          component: RegisterView,
+          component: RegisterView
         }
       ],
       meta: { requiresAuth: false }
@@ -42,21 +42,21 @@ const router = createRouter({
       name: 'main-layout',
       component: MainLayout,
       children: [
-      {
-        path: "user",
-        name: 'user',
-        component: UserView,
-      },
-      {
-        path: "artist",
-        name: 'artist',
-        component: ArtistView,
-      },
-      {
-        path: "song/:artistId",
-        name: 'song',
-        component: SongView,
-      }
+        {
+          path: 'user',
+          name: 'user',
+          component: UserView
+        },
+        {
+          path: 'artist',
+          name: 'artist',
+          component: ArtistView
+        },
+        {
+          path: 'song/:artistId',
+          name: 'song',
+          component: SongView
+        }
       ],
       meta: { requiresAuth: true }
     }

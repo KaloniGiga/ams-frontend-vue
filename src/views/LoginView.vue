@@ -2,7 +2,7 @@
 import { ref, computed } from 'vue'
 import { useRouter } from 'vue-router'
 import useAuthStore from '../stores/auth.js'
-import { Button } from '@/components/ui/button/index.js';
+import { Button } from '@/components/ui/button/index.js'
 
 const router = useRouter()
 const authStore = useAuthStore()
@@ -49,21 +49,21 @@ const handleFormSubmit = async (event) => {
 </script>
 
 <template>
-    <form class="authForm" @submit.prevent="handleFormSubmit">
-      <h1 class="formHeading">Welcome Back! Login</h1>
-      <label for="email">Email</label>
-      <input type="text" class="input" name="email" v-model="form.email.value" />
-      <span class="error" v-if="errors.email">{{ errors.email }}</span>
+  <form class="authForm" @submit.prevent="handleFormSubmit">
+    <h1 class="formHeading">Welcome Back! Login</h1>
+    <label for="email">Email</label>
+    <input type="text" class="input" name="email" v-model="form.email.value" />
+    <span class="error" v-if="errors.email">{{ errors.email }}</span>
 
-      <label>Password</label>
-      <input type="password" class="input" name="password" v-model="form.password.value" />
-      <span class="error" v-if="errors.password">{{ errors.password }}</span>
+    <label>Password</label>
+    <input type="password" class="input" name="password" v-model="form.password.value" />
+    <span class="error" v-if="errors.password">{{ errors.password }}</span>
 
-      <!-- <button class="submitBtn">Submit</button> -->
-       <Button></Button>
+    <!-- <button class="submitBtn">Submit</button> -->
+    <Button></Button>
 
-      <p>Don't have a account? <RouterLink to="/register">Register</RouterLink></p>
-    </form>
+    <p>Don't have a account? <RouterLink to="/register">Register</RouterLink></p>
+  </form>
 </template>
 <style scoped>
 p {

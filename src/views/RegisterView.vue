@@ -85,90 +85,85 @@ const handleFormSubmit = async (event) => {
 }
 </script>
 <template>
-    <form class="authForm" @submit.prevent="handleFormSubmit">
-      <h1 class="formHeading">Sign up to continue</h1>
+  <form class="authForm" @submit.prevent="handleFormSubmit">
+    <h1 class="formHeading">Sign up to continue</h1>
 
-      <div class="fieldRow">
-        <div>
-          <label for="first_name">First name</label>
-          <input
-            type="text"
-            v-model="form.first_name.value"
-            name="first_name"
-            @blur="validateField('first_name')"
-          />
+    <div class="fieldRow">
+      <div>
+        <label for="first_name">First name</label>
+        <input
+          type="text"
+          v-model="form.first_name.value"
+          name="first_name"
+          @blur="validateField('first_name')"
+        />
 
-          <span class="error" v-if="errors.first_name">{{ errors.first_name }}</span>
-        </div>
-
-        <div>
-          <label for="last_name">Last name</label>
-          <input
-            type="text"
-            v-model="form.last_name.value"
-            name="last_name"
-            @blur="validateField('last_name')"
-          />
-
-          <span class="error" v-if="errors.last_name">{{ errors.last_name }}</span>
-        </div>
+        <span class="error" v-if="errors.first_name">{{ errors.first_name }}</span>
       </div>
 
-      <label for="email">Email</label>
-      <input type="text" name="email" v-model="form.email.value" @blur="validateField('email')" />
-      <span class="error" v-if="errors.email">{{ errors.email }}</span>
+      <div>
+        <label for="last_name">Last name</label>
+        <input
+          type="text"
+          v-model="form.last_name.value"
+          name="last_name"
+          @blur="validateField('last_name')"
+        />
 
-      <label>Password</label>
-      <input
-        type="password"
-        name="password"
-        v-model="form.password.value"
-        @blur="validateField('password')"
-      />
-      <span class="error" v-if="errors.password">{{ errors.password }}</span>
+        <span class="error" v-if="errors.last_name">{{ errors.last_name }}</span>
+      </div>
+    </div>
 
-      <div class="fieldRow">
-        <div style="width: 100%">
-          <label for="phone">Phone</label>
-          <input
-            type="text"
-            name="phone"
-            v-model="form.phone.value"
-            @blur="validateField('phone')"
-          />
-          <span class="error" v-if="errors.phone">{{ errors.phone }}</span>
-        </div>
+    <label for="email">Email</label>
+    <input type="text" name="email" v-model="form.email.value" @blur="validateField('email')" />
+    <span class="error" v-if="errors.email">{{ errors.email }}</span>
 
-        <div style="width: 100%">
-          <label for="dob">DOB</label>
-          <input type="date" name="dob" v-model="form.dob.value" @blur="validateField('dob')" />
-          <span class="error" v-if="errors.dob">{{ errors.dob }}</span>
-        </div>
+    <label>Password</label>
+    <input
+      type="password"
+      name="password"
+      v-model="form.password.value"
+      @blur="validateField('password')"
+    />
+    <span class="error" v-if="errors.password">{{ errors.password }}</span>
+
+    <div class="fieldRow">
+      <div style="width: 100%">
+        <label for="phone">Phone</label>
+        <input type="text" name="phone" v-model="form.phone.value" @blur="validateField('phone')" />
+        <span class="error" v-if="errors.phone">{{ errors.phone }}</span>
       </div>
 
-      <label for="gender">Gender</label>
+      <div style="width: 100%">
+        <label for="dob">DOB</label>
+        <input type="date" name="dob" v-model="form.dob.value" @blur="validateField('dob')" />
+        <span class="error" v-if="errors.dob">{{ errors.dob }}</span>
+      </div>
+    </div>
 
-      <select name="gender" v-model="form.gender.value" @blur="validateField('gender')">
-        <option value="male">Male</option>
-        <option value="female">Female</option>
-        <option value="">Other</option>
-      </select>
-      <span class="error" v-if="errors.gender">{{ errors.gender }}</span>
-      <!-- <input type="text" name="gender" /> -->
+    <label for="gender">Gender</label>
 
-      <label for="address">Address</label>
-      <input
-        type="text"
-        name="address"
-        v-model="form.address.value"
-        @blur="validateField('address')"
-      />
-      <span class="error" v-if="errors.address">{{ errors.address }}</span>
+    <select name="gender" v-model="form.gender.value" @blur="validateField('gender')">
+      <option value="male">Male</option>
+      <option value="female">Female</option>
+      <option value="">Other</option>
+    </select>
+    <span class="error" v-if="errors.gender">{{ errors.gender }}</span>
+    <!-- <input type="text" name="gender" /> -->
 
-      <button class="submitBtn">Submit</button>
+    <label for="address">Address</label>
+    <input
+      type="text"
+      name="address"
+      v-model="form.address.value"
+      @blur="validateField('address')"
+    />
+    <span class="error" v-if="errors.address">{{ errors.address }}</span>
 
-      <p>Already have an account? <RouterLink to="/">Login</RouterLink></p>
-    </form>
+    <button class="submitBtn">Submit</button>
+
+    <p>Already have an account? <RouterLink to="/">Login</RouterLink></p>
+  </form>
 </template>
 <style scoped>
 p {

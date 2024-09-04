@@ -48,11 +48,10 @@ const useAuthStore = defineStore('auth', () => {
 
       const isSuccessfull = response.ok
       const data = await response.json()
-      console.log(data); 
+      console.log(data)
       if (!isSuccessfull) {
         throw new Error(data.messages)
       }
-
     } catch (error) {
       return { error }
     }

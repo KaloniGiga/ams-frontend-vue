@@ -1,19 +1,19 @@
 <script setup>
-import { Button } from '@/components/ui/button';
-import { Dialog, DialogTrigger } from '@/components/ui/dialog';
+import { Button } from '@/components/ui/button'
+import { Dialog, DialogTrigger } from '@/components/ui/dialog'
 
-const isOpen = defineModel();
+const isOpen = defineModel()
 defineProps({
-    buttonLabel: String,
+  buttonLabel: String
 })
 </script>
 <template>
-   <Dialog v-model:open="isOpen">  
+  <Dialog v-model:open="isOpen">
     <DialogTrigger as-child>
-        <Button>
-            {{ buttonLabel }}
-        </Button>
+      <Button>
+        {{ buttonLabel }}
+      </Button>
     </DialogTrigger>
     <slot></slot>
-   </Dialog>
+  </Dialog>
 </template>
