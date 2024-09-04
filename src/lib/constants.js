@@ -33,3 +33,31 @@ export const roleType = [
         value: "artist",
     }
 ]
+
+export const genreList = [
+    {
+        id: 1,
+        label: "RNB",
+        value: "rnb",
+    },
+    {
+        id: 2,
+        label: "Country",
+        value: "country",
+    },
+    {
+        id: 3,
+        label: "Classic",
+        value: "classic",
+    },
+    {
+        id: 4,
+        label: "Rock",
+        value: "rock",
+    },
+    {
+        id: 5,
+        label: "Jazz",
+        value: "jazz",
+    }
+]

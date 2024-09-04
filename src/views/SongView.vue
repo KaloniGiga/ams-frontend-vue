@@ -1,5 +1,6 @@
 <script setup>
-import { Button } from '@/components/ui/button'
+import SongDialog from '@/components/dialog/SongDialog.vue';
+import DialogLayout from '@/layouts/DialogLayout.vue';
 import TableLayout from '@/layouts/TableLayout.vue'
 </script>
 <template>
@@ -7,6 +8,8 @@ import TableLayout from '@/layouts/TableLayout.vue'
     title="Songs Table"
     description="This table contains list of all the songs of artist."
   >
-    <Button>Add song</Button>
+   <DialogLayout v-model="isOpen" button-label="Add Song">
+      <SongDialog :isEdit="false" />
+   </DialogLayout>
   </TableLayout>
 </template>
