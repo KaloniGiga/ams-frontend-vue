@@ -1,3 +1,7 @@
+/* eslint-disable no-unused-vars */
+import { h } from "vue"
+import ArtistOptions from "./ArtistOptions.vue"
+
 export const artistColumns = [
   {
     accessorKey: 'name',
@@ -14,5 +18,11 @@ export const artistColumns = [
   {
     accessorKey: 'no_of_albums_released',
     header: 'No of albums released'
+  },
+  {
+    id: 'actions',
+    cell: ({ row }) => {
+      return h('div', { class: 'relative' }, h(ArtistOptions))
+    }
   }
 ]

@@ -108,3 +108,72 @@ export const userData = [
     address: 'mahendranager, kanchanpur'
   }
 ]
+
+export const artistData = [
+  {
+    id: 1,
+    name: 'dipak kalauni',
+    dob: '2023/01/23',
+    gender: 'm',
+    address: 'mahendranager, kanchanpur',
+    first_release_year: 2000,
+    no_of_albums_released: 2
+  },
+  {
+    id: 2,
+    name: 'dipak kalauni',
+    dob: '2023/01/23',
+    gender: 'm',
+    address: 'mahendranager, kanchanpur',
+    first_release_year: 2000,
+    no_of_albums_released: 2
+  },
+  {
+    id: 3,
+    name: 'dipak kalauni',
+    dob: '2023/01/23',
+    gender: 'm',
+    address: 'mahendranager, kanchanpur',
+    first_release_year: 2000,
+    no_of_albums_released: 2
+  },
+  {
+    id: 4,
+    name: 'dipak kalauni',
+    dob: '2023/01/23',
+    gender: 'm',
+    address: 'mahendranager, kanchanpur',
+    first_release_year: 2000,
+    no_of_albums_released: 2
+  }
+]
+
+export const songsData = [
+  {
+    id: 1,
+    title: 'dfkdfjdkfjd',
+    album_name: 'album1',
+    genre: "rnb"
+  },
+  {
+    id: 2,
+    title: 'dfkdfjdkfjd',
+    album_name: 'album1',
+    genre: "rnb"
+  },
+  {
+    id: 3,
+    title: 'dfkdfjdkfjd',
+    album_name: 'album1',
+    genre: "rnb"
+  },
+  {
+    id: 4,
+    title: 'dfkdfjdkfjd',
+    album_name: 'album1',
+    genre: "rnb"
+  }
+]
+
+
+
