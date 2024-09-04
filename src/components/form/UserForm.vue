@@ -2,8 +2,12 @@
 import { useUserForm } from '@/composables/userForm'
 import FormLayout from '@/layouts/FormLayout.vue'
 import InputUI from '../core/input/InputUI.vue'
+import SelectUI from '../core/select/SelectUI.vue';
+import { genderList } from '@/lib/constants';
+import { roleType } from '@/lib/constants';
 
-const { onSubmit } = useUserForm()
+const { onSubmit , values } = useUserForm()
+
 </script>
 <template>
   <FormLayout @handleSubmit="onSubmit" button-label="Submit">
@@ -27,5 +31,29 @@ const { onSubmit } = useUserForm()
         <InputUI type="text" name="dob" label="Date of Birth" />
       </div>
     </div>
+
+    <SelectUI
+    placeholder="Enter Gender"
+    name="gender"
+    label="Gender"
+    :select-items="genderList"
+     />
+
+    <SelectUI
+    placeholder="Enter Role"
+    name="role_type"
+    label="Role"
+    :select-items="roleType"
+     />
+
+   <SelectUI
+    v-if="values.role_type == 'artist'"
+    placeholder="Select Artist"
+    name="artist_id"
+    label="Artist"
+    :select-items="[]"
+     />
+
+    <InputUI type="text" name="address" label="Address" />
   </FormLayout>
 </template>
