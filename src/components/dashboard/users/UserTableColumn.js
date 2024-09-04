@@ -22,7 +22,7 @@ export const userColumns = [
   {
     id: 'actions',
     cell: ({ row }) => {
-      return h('div', { class: 'relative'}, h(UserOptions))
+      return h('div', { class: 'relative' }, h(UserOptions))
     }
   }
 ]

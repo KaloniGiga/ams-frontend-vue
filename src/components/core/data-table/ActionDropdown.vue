@@ -11,7 +11,7 @@ import { BorderDottedIcon } from '@radix-icons/vue'
 
 const isOpen = defineModel()
 defineProps({
-  isDeleteClicked: Boolean,
+  isDeleteClicked: Boolean
 })
 
 defineEmits(['editClick', 'deleteClick'])
