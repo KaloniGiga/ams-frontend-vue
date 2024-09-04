@@ -9,10 +9,10 @@ export const artistColumns = [
   },
   {
     accessorKey: 'first_release_year',
-    header: 'First release year',
+    header: 'First release year'
   },
   {
     accessorKey: 'no_of_albums_released',
-    header: 'No of albums released',
+    header: 'No of albums released'
   }
 ]

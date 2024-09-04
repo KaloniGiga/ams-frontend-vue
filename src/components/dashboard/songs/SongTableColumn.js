@@ -9,6 +9,6 @@ export const songColumns = [
   },
   {
     accessorKey: 'genre',
-    header: 'Genre',
+    header: 'Genre'
   }
 ]

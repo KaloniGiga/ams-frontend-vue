@@ -1,5 +1,5 @@
 <script setup>
-import { songColumns } from '@/components/dashboard/songs/SongTableColumn';
+import { songColumns } from '@/components/dashboard/songs/SongTableColumn'
 import SongDialog from '@/components/dialog/SongDialog.vue'
 import DialogLayout from '@/layouts/DialogLayout.vue'
 import TableLayout from '@/layouts/TableLayout.vue'

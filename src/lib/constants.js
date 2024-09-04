@@ -61,3 +61,50 @@ export const genreList = [
     value: 'jazz'
   }
 ]
+
+export const userData = [
+  {
+    id: 1,
+    first_name: 'dipak',
+    last_name: 'kalauni',
+    email: 'dipakkalauni@gmail.com',
+    phone: '98494839393',
+    dob: '2023/01/23',
+    gender: 'm',
+    role_type: 'super_admin',
+    address: 'mahendranager, kanchanpur'
+  },
+  {
+    id: 2,
+    first_name: 'dipak',
+    last_name: 'kalauni',
+    email: 'dipakkalauni@gmail.com',
+    phone: '98494839393',
+    dob: '2023/01/23',
+    gender: 'm',
+    role_type: 'super_admin',
+    address: 'mahendranager, kanchanpur'
+  },
+  {
+    id: 3,
+    first_name: 'dipak',
+    last_name: 'kalauni',
+    email: 'dipakkalauni@gmail.com',
+    phone: '98494839393',
+    dob: '2023/01/23',
+    gender: 'm',
+    role_type: 'super_admin',
+    address: 'mahendranager, kanchanpur'
+  },
+  {
+    id: 4,
+    first_name: 'dipak',
+    last_name: 'kalauni',
+    email: 'dipakkalauni@gmail.com',
+    phone: '98494839393',
+    dob: '2023/01/23',
+    gender: 'm',
+    role_type: 'super_admin',
+    address: 'mahendranager, kanchanpur'
+  }
+]

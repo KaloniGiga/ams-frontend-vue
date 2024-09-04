@@ -7,6 +7,7 @@ import CardHeader from '@/components/ui/card/CardHeader.vue'
 import CardTitle from '@/components/ui/card/CardTitle.vue'
 
 defineProps({
+  data: { type: Array },
   columns: { type: Object },
   title: { type: String, required: true },
   description: { type: String, required: true }
@@ -23,7 +24,7 @@ defineProps({
       <slot></slot>
     </CardHeader>
     <CardContent>
-     <DataTable :data="[]" :columns="columns" /> 
+      <DataTable :data="data" :columns="columns" />
     </CardContent>
   </Card>
 </template>

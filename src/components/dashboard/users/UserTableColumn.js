@@ -1,3 +1,7 @@
+/* eslint-disable no-unused-vars */
+import { h } from 'vue'
+import UserOptions from './UserOptions.vue'
+
 export const userColumns = [
   {
     accessorKey: 'first_name',
@@ -14,5 +18,11 @@ export const userColumns = [
   {
     accessorKey: 'gender',
     header: 'Gender'
+  },
+  {
+    id: 'actions',
+    cell: ({ row }) => {
+      return h('div', { class: 'relative'}, h(UserOptions))
+    }
   }
 ]

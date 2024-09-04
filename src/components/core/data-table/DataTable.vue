@@ -20,7 +20,7 @@ const table = useVueTable({
 })
 </script>
 <template>
-  <div>
+  <div class="border rounded-md">
     <Table>
       <TableHeader>
         <TableRow v-for="headerGroup in table.getHeaderGroups()" :key="headerGroup.id">
@@ -35,13 +35,9 @@ const table = useVueTable({
       </TableHeader>
       <TableBody>
         <template v-if="table.getRowModel().rows?.length">
-          <TableRow
-            v-for="row in table.getRowModel().rows"
-            :key="row.id"
-            :data-state="row.getIsSelected() ? 'selected' : undefined"
-          >
-            <TableCell v-for="cell in row.getVisibleCells()" :key="cell.id">
-              <FlexRender :render="cell.column.columnDef" :props="cell.getContext()" />
+          <TableRow v-for="row in table.getRowModel().rows" :key="row.id">
+            <TableCell class="h-14 px-4" v-for="cell in row.getVisibleCells()" :key="cell.id">
+              <FlexRender :render="cell.column.columnDef.cell" :props="cell.getContext()" />
             </TableCell>
           </TableRow>
         </template>
