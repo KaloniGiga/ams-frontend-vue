@@ -3,10 +3,12 @@ import { artistColumns } from '@/components/dashboard/artists/ArtistTableColumn'
 import ArtistDialog from '@/components/dialog/ArtistDialog.vue'
 import DialogLayout from '@/layouts/DialogLayout.vue'
 import TableLayout from '@/layouts/TableLayout.vue'
-import { artistData } from '@/lib/constants'
-import { ref } from 'vue'
+import useArtistStore from '@/stores/artist'
+import { storeToRefs } from 'pinia'
 
-const isOpen = ref(false)
+const artistStore = useArtistStore()
+const { artistData } = storeToRefs(artistStore);
+await artistStore.fetchArtists()
 </script>
 <template>
   <TableLayout
@@ -15,8 +17,8 @@ const isOpen = ref(false)
     title="Artist Table"
     description="This table contains list of all artist."
   >
-    <DialogLayout v-model="isOpen" button-label="Add Artist">
-      <ArtistDialog :isEdit="false" />
+    <DialogLayout button-label="Add Artist">
+      <ArtistDialog />
     </DialogLayout>
   </TableLayout>
 </template>

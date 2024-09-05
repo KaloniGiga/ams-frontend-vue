@@ -6,7 +6,7 @@ import useUserStore from '@/stores/user';
 import { ref } from 'vue'
 
 const props = defineProps(['userData'])
-const userStore = useUserStore();
+const userStore = useUserStore()
 const dialogStore = useDialogStore()
 const deleteDialog = ref(false)
 

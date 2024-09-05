@@ -20,7 +20,7 @@ const useUserStore = defineStore('user', () => {
         const { data } = await useFetch(`${API_BASE}/signup`, { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify(body) })
         if (data) {
             console.log(data);
-            users.value = [...JSON.parse(data.value), ...users.value]
+            users.value = [JSON.parse(data.value), ...users.value]
             console.log([JSON.parse(data.value), ...users.value])
         }
     }

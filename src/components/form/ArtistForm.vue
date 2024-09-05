@@ -10,7 +10,7 @@ const { onSubmit } = useArtistForm()
 <template>
   <FormLayout @handleSubmit="onSubmit" button-label="Submit">
     <InputUI type="text" name="name" label="Name" />
-    <InputUI type="text" name="dob" label="Date of Birth" />
+    <InputUI type="date" name="dob" label="Date of Birth" />
 
     <SelectUI placeholder="Enter Gender" name="gender" label="Gender" :select-items="genderList" />
 

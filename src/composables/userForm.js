@@ -37,8 +37,7 @@ const { postUser, putUser } = useUserStore()
   };
 
 
-  console.log(isEdit.value, editData);
-    if (isEdit && editData) {
+    if (isEdit.value && editData.value) {
     setFieldValue("first_name", editData.value.first_name)
     setFieldValue("last_name", editData.value.last_name)
     setFieldValue("email", editData.value.email)
@@ -55,12 +54,11 @@ const { postUser, putUser } = useUserStore()
 
 
   const onSubmit = handleSubmit(async (values) => {
-    console.log(values);
-    // if (!isEdit.value) {
-    //  await postUser({ user: { ...values }});
-    // } else {
-    //  await putUser({ user: { ...values }})
-    // }
+    if (!isEdit.value) {
+     await postUser({ user: { ...values }});
+    } else {
+     await putUser({ user: { ...values }})
+    }
     dialogStore.dialogClose()
   })
 
