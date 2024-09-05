@@ -9,6 +9,7 @@ export function useArtistForm() {
   const dialogStore = useDialogStore()
   const { isEdit, editData } = storeToRefs(dialogStore);
   const { postArtist, putArtist } = useArtistStore()
+  
   const formSchema = toTypedSchema(
     z.object({
       name: z.string().min(2).max(50).default(''),

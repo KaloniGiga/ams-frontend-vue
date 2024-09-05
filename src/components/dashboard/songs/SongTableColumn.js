@@ -1,5 +1,5 @@
 /* eslint-disable no-unused-vars */
-import { h } from "vue"
+import { h, toRaw } from "vue"
 import SongOptions from "./SongOptions.vue"
 
 export const songColumns = [
@@ -18,7 +18,7 @@ export const songColumns = [
   {
     id: 'actions',
     cell: ({ row }) => {
-      return h('div', { class: 'relative' }, h(SongOptions))
+      return h('div', { class: 'relative' }, h(SongOptions, { songData: toRaw(row.original)}))
     }
   }
 ]

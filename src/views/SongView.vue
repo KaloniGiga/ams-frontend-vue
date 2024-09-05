@@ -3,7 +3,13 @@ import { songColumns } from '@/components/dashboard/songs/SongTableColumn'
 import SongDialog from '@/components/dialog/SongDialog.vue'
 import DialogLayout from '@/layouts/DialogLayout.vue'
 import TableLayout from '@/layouts/TableLayout.vue'
-import { songsData } from '@/lib/constants';
+import useSongStore from '@/stores/song';
+import { storeToRefs } from 'pinia';
+
+const songStore = useSongStore()
+const { songsData } = storeToRefs(songStore);
+await songStore.fetchSongs()
+
 </script>
 <template>
   <TableLayout
@@ -12,8 +18,8 @@ import { songsData } from '@/lib/constants';
     title="Songs Table"
     description="This table contains list of all the songs of artist."
   >
-    <DialogLayout v-model="isOpen" button-label="Add Song">
-      <SongDialog :isEdit="false" />
+    <DialogLayout button-label="Add Song">
+      <SongDialog />
     </DialogLayout>
   </TableLayout>
 </template>

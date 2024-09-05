@@ -1,19 +1,31 @@
 <script setup>
 import ActionDropdown from '@/components/core/data-table/ActionDropdown.vue'
 import DeleteDialog from '@/components/dialog/DeleteDialog.vue'
-import SongDialog from '@/components/dialog/SongDialog.vue';
+import useDialogStore from '@/stores/dialog';
+import useSongStore from '@/stores/song';
 import { ref } from 'vue'
-const isOpen = ref(false)
-const isDeleteClicked = ref(false)
+
+const props = defineProps(['songData'])
+const songStore = useSongStore();
+const dialogStore = useDialogStore()
+const deleteDialog = ref(false)
 
 const handleEditClick = () => {
-  isDeleteClicked.value = false
-  isOpen.value = true
+    dialogStore.setIsEdit(props.songData)
+    dialogStore.setIsOpen()
 }
 
 const handleDeleteClick = () => {
-  isDeleteClicked.value = true
-  isOpen.value = true
+  deleteDialog.value = true
+}
+
+const handleDeleteCancel = () => {
+   deleteDialog.value = false
+}
+
+const handleDeleteConfirm = async () => {
+   await songStore.deletesong(); 
+   deleteDialog.value = false
 }
 
 </script>
@@ -21,10 +33,8 @@ const handleDeleteClick = () => {
   <ActionDropdown
     @editClick="handleEditClick"
     @deleteClick="handleDeleteClick"
-    v-model="isOpen"
-    :isDeleteClicked="isDeleteClicked"
+    v-model="deleteDialog"
   >
-    <SongDialog :isEdit="true" v-if="!isDeleteClicked" />
-    <DeleteDialog titleKey="song" v-else-if="isDeleteClicked" />
+    <DeleteDialog @deleteCancel="handleDeleteCancel" @deleteConfirm="handleDeleteConfirm" titleKey="song" />
   </ActionDropdown>
 </template>
