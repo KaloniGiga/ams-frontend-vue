@@ -1,5 +1,5 @@
 /* eslint-disable no-unused-vars */
-import { h } from 'vue'
+import { h, toRaw } from 'vue'
 import UserOptions from './UserOptions.vue'
 
 export const userColumns = [
@@ -22,7 +22,7 @@ export const userColumns = [
   {
     id: 'actions',
     cell: ({ row }) => {
-      return h('div', { class: 'relative' }, h(UserOptions))
+      return h('div', { class: 'relative', }, [h(UserOptions, { userData: toRaw(row.original) })])
     }
-  }
+  }     
 ]

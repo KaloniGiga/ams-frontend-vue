@@ -27,7 +27,7 @@ const { onSubmit, values } = useUserForm()
         <InputUI type="text" name="phone" label="Phone" />
       </div>
       <div className="grid gap-2">
-        <InputUI type="text" name="dob" label="Date of Birth" />
+        <InputUI type="date" name="dob" label="Date of Birth" />
       </div>
     </div>
 

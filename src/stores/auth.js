@@ -1,6 +1,7 @@
 /* eslint-disable no-undef */
 import { ref, computed } from 'vue'
 import { defineStore } from 'pinia'
+import { API_BASE } from '@/lib/constants'
 
 const useAuthStore = defineStore('auth', () => {
   const user = ref(null)
@@ -8,14 +9,13 @@ const useAuthStore = defineStore('auth', () => {
 
   const isLoggedIn = computed(() => bearerToken.value !== null)
 
-  const API_URL = 'http://localhost:3000'
   //calls the login api and return the response
   const login = async (formData) => {
     try {
       console.log(Object.fromEntries(formData))
       const params = Object.fromEntries(formData)
 
-      const response = await fetch(`${API_URL}/login`, {
+      const response = await fetch(`${API_BASE}/login`, {
         method: 'POST',
         body: JSON.stringify({ user: params }),
         headers: { 'Content-Type': 'application/json' }
@@ -40,7 +40,7 @@ const useAuthStore = defineStore('auth', () => {
   const register = async (formData) => {
     try {
       const params = Object.entries(formData)
-      const response = await fetch(`${API_URL}/signup`, {
+      const response = await fetch(`${API_BASE}/signup`, {
         method: 'POST',
         body: JSON.stringify({ user: params }),
         headers: { 'Content-Type': 'application/json' }
@@ -64,7 +64,7 @@ const useAuthStore = defineStore('auth', () => {
 
     if (tokenExist) {
       try {
-        const response = await fetch(`${API_URL}/login`, {
+        const response = await fetch(`${API_BASE}/login`, {
           headers: { Authorization: token }
         })
 

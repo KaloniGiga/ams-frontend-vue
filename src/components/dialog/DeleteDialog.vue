@@ -4,6 +4,9 @@ import { DialogContent, DialogDescription, DialogHeader, DialogTitle } from '../
 defineProps({
   titleKey: String
 })
+
+defineEmits(['deleteConfirm', 'deleteCancel'])
+
 </script>
 <template>
   <DialogContent>
@@ -17,8 +20,8 @@ defineProps({
     </DialogHeader>
 
     <div className="flex justify-end gap-4">
-      <Button variant="outline"> Cancel </Button>
-      <Button> Confirm </Button>
+      <Button @click="deleteCancel" variant="outline"> Cancel </Button>
+      <Button @click="deleteConfirm"> Confirm </Button>
     </div>
   </DialogContent>
 </template>

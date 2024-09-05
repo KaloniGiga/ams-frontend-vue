@@ -1,33 +1,41 @@
 <script setup>
 import ActionDropdown from '@/components/core/data-table/ActionDropdown.vue'
 import DeleteDialog from '@/components/dialog/DeleteDialog.vue'
-import UserDialog from '@/components/dialog/UserDialog.vue'
+import useDialogStore from '@/stores/dialog'
+import useUserStore from '@/stores/user';
 import { ref } from 'vue'
-const isOpen = ref(false)
-const isDeleteClicked = ref(false)
+
+const props = defineProps(['userData'])
+const userStore = useUserStore();
+const dialogStore = useDialogStore()
+const deleteDialog = ref(false)
 
 const handleEditClick = () => {
-  console.log('editclicked')
-  isDeleteClicked.value = false
-  isOpen.value = true
+    dialogStore.setIsEdit(props.userData)
+    dialogStore.setIsOpen()
 }
 
 const handleDeleteClick = () => {
-  console.log('delte clicked')
-  isDeleteClicked.value = true
-  isOpen.value = true
+  deleteDialog.value = true
 }
 
-console.log(isOpen.value)
+const handleDeleteCancel = () => {
+   console.log(props.userData.id);
+   deleteDialog.value = false
+}
+
+const handleDeleteConfirm = async () => {
+   await userStore.deleteUser(); 
+   deleteDialog.value = false
+}
+
 </script>
 <template>
   <ActionDropdown
     @editClick="handleEditClick"
     @deleteClick="handleDeleteClick"
-    v-model="isOpen"
-    :isDeleteClicked="isDeleteClicked"
+    v-model="deleteDialog"
   >
-    <UserDialog :isEdit="true" v-if="!isDeleteClicked" />
-    <DeleteDialog titleKey="user" v-else-if="isDeleteClicked" />
+    <DeleteDialog @deleteCancel="handleDeleteCancel" @deleteConfirm="handleDeleteConfirm" titleKey="user" />
   </ActionDropdown>
 </template>
