@@ -3,13 +3,13 @@ import { songColumns } from '@/components/dashboard/songs/SongTableColumn'
 import SongDialog from '@/components/dialog/SongDialog.vue'
 import DialogLayout from '@/layouts/DialogLayout.vue'
 import TableLayout from '@/layouts/TableLayout.vue'
-import useSongStore from '@/stores/song';
-import { storeToRefs } from 'pinia';
+import { songsData } from '@/lib/constants'
+import useSongStore from '@/stores/song'
+// import { storeToRefs } from 'pinia';
 
 const songStore = useSongStore()
-const { songsData } = storeToRefs(songStore);
+// const { songsData } = storeToRefs(songStore);
 await songStore.fetchSongs()
-
 </script>
 <template>
   <TableLayout

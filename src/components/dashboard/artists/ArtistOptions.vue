@@ -6,13 +6,13 @@ import useDialogStore from '@/stores/dialog'
 import { ref } from 'vue'
 
 const props = defineProps(['artistData'])
-const artistStore = useArtistStore();
+const artistStore = useArtistStore()
 const dialogStore = useDialogStore()
 const deleteDialog = ref(false)
 
 const handleEditClick = () => {
-    dialogStore.setIsEdit(props.artistData)
-    dialogStore.setIsOpen()
+  dialogStore.setIsEdit(props.artistData)
+  dialogStore.setIsOpen()
 }
 
 const handleDeleteClick = () => {
@@ -20,14 +20,13 @@ const handleDeleteClick = () => {
 }
 
 const handleDeleteCancel = () => {
-   deleteDialog.value = false
+  deleteDialog.value = false
 }
 
 const handleDeleteConfirm = async () => {
-   await artistStore.deleteUser(); 
-   deleteDialog.value = false
+  await artistStore.deleteUser()
+  deleteDialog.value = false
 }
-
 </script>
 <template>
   <ActionDropdown
@@ -35,7 +34,10 @@ const handleDeleteConfirm = async () => {
     @deleteClick="handleDeleteClick"
     v-model="deleteDialog"
   >
-    <DeleteDialog @deleteCancel="handleDeleteCancel" @deleteConfirm="handleDeleteConfirm" titleKey="artist" />
+    <DeleteDialog
+      @deleteCancel="handleDeleteCancel"
+      @deleteConfirm="handleDeleteConfirm"
+      titleKey="artist"
+    />
   </ActionDropdown>
 </template>
-

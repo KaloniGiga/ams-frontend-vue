@@ -1,11 +1,11 @@
 /* eslint-disable no-undef */
-import { ref} from 'vue'
+import { ref } from 'vue'
 import { defineStore } from 'pinia'
 
 const useDialogStore = defineStore('dialog', () => {
   const isOpen = ref(false)
   const isEdit = ref(false)
-  const editData = ref(null);
+  const editData = ref(null)
 
   const dialogClose = () => {
     isOpen.value = false
@@ -20,7 +20,7 @@ const useDialogStore = defineStore('dialog', () => {
   const resetIsEdit = () => {
     editData.value = null
     isEdit.value = false
-}
+  }
 
   const setIsEdit = (data) => {
     editData.value = data
@@ -31,4 +31,3 @@ const useDialogStore = defineStore('dialog', () => {
 })
 
 export default useDialogStore
-

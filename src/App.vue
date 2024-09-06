@@ -5,7 +5,7 @@ import { Toaster } from './components/ui/sonner'
 
 <template>
   <suspense>
-  <RouterView />
- </suspense>
+    <RouterView />
+  </suspense>
   <Toaster />
 </template>

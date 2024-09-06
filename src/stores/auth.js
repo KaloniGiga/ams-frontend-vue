@@ -2,86 +2,93 @@
 import { ref, computed } from 'vue'
 import { defineStore } from 'pinia'
 import { API_BASE } from '@/lib/constants'
+import { useFetch } from '@vueuse/core'
+import router from '@/router'
+import { toast } from 'vue-sonner'
 
 const useAuthStore = defineStore('auth', () => {
   const user = ref(null)
   const bearerToken = ref(null)
 
-  const isLoggedIn = computed(() => bearerToken.value !== null)
+  const isLoggedIn = computed(() => bearerToken.value)
 
   //calls the login api and return the response
   const login = async (formData) => {
-    try {
-      console.log(Object.fromEntries(formData))
       const params = Object.fromEntries(formData)
 
-      const response = await fetch(`${API_BASE}/login`, {
+      const { data, error } = await useFetch(`${API_BASE}/login`, {
         method: 'POST',
         body: JSON.stringify({ user: params }),
         headers: { 'Content-Type': 'application/json' }
       })
 
-      const isSuccessfull = response.ok
-      const data = await response.json()
-      console.log(data)
-
-      if (!isSuccessfull) {
-        throw new Error(data.messages)
-      }
-      user.value = data.user
+    if (data) {
+      console.log(data.value, data.value?.headers?.get("Authorization"))
+      user.value = data.value.user
       bearerToken.value = Object.fromEntries(response.headers).authorization
       localStorage.setItem('bearerToken', bearerToken.value)
-    } catch (error) {
-      return { error }
+    }
+
+    if (error) {
+      toast.error(error.value)
     }
   }
 
   // calls the register api
   const register = async (formData) => {
-    try {
       const params = Object.entries(formData)
-      const response = await fetch(`${API_BASE}/signup`, {
+      const { data, error } = await useFetch(`${API_BASE}/signup`, {
         method: 'POST',
         body: JSON.stringify({ user: params }),
         headers: { 'Content-Type': 'application/json' }
       })
 
-      const isSuccessfull = response.ok
-      const data = await response.json()
-      console.log(data)
-      if (!isSuccessfull) {
-        throw new Error(data.messages)
-      }
-    } catch (error) {
-      return { error }
-    }
+     if (data) {
+      console.log(data.value);
+       router.push("/auth/login")
+     }
+
+     if (error) {
+       toast.error(error.value)
+     }
+
   }
 
   // checks if user is validated or not.
   const validateUser = async () => {
     const token = localStorage.getItem('bearerToken')
-    const tokenExist = token !== undefined && token !== null
+    const tokenExist =  token !== null;
 
-    if (tokenExist) {
-      try {
-        const response = await fetch(`${API_BASE}/login`, {
+    if (tokenExist) {   
+        console.log(token, tokenExist)
+        const { data, error } = await useFetch(`${API_BASE}/login`, {
           headers: { Authorization: token }
         })
 
-        if (!response.ok) {
-          throw new Error('Invalid Bearer token')
+        if (data) {
+        console.log(data, data.value);
+        user.value = data.value
+        bearerToken.value = token
         }
 
-        const data = await response.json()
-        user.value = data.user
-        bearerToken.value = token
-      } catch (error) {
-        console.log(error)
-      }
-    }
+        if (error) {
+          toast.error(error.value);
+        }
+    }                             
   }
 
-  return { register, validateUser, login, user, isLoggedIn }
+  const logout = async () => {
+     const { data, error } = useFetch(`${API_BASE}/logout`) 
+     if (data) {
+      router.push("/auth/login")
+     }
+
+     if (error) {
+       toast.error(error.message)
+     }
+  }
+
+  return { register, validateUser, login, user, isLoggedIn, logout, bearerToken }
 })
 
 export default useAuthStore

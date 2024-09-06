@@ -7,7 +7,7 @@ import useArtistStore from '@/stores/artist'
 import { storeToRefs } from 'pinia'
 
 const artistStore = useArtistStore()
-const { artistData } = storeToRefs(artistStore);
+const { artistData } = storeToRefs(artistStore)
 await artistStore.fetchArtists()
 </script>
 <template>

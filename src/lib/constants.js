@@ -1,18 +1,38 @@
+export const genderObj = {
+  Male: 'm',
+  Female: 'f',
+  Other: 'o'
+}
+
+export const roleTypeObj = {
+  SuperAdmin: 'super_admin',
+  ArtistManager: 'artist_manager',
+  Artist: 'artist'
+}
+
+export const genreObj = {
+  RNB: 'rnb',
+  Country: 'country',
+  Classic: 'classic',
+  jazz: 'jazz',
+  Rock: 'rock'
+}
+
 export const genderList = [
   {
     id: 1,
     label: 'Male',
-    value: 'm'
+    value: genderObj.Male
   },
   {
     id: 2,
     label: 'Female',
-    value: 'f'
+    value: genderObj.Female
   },
   {
     id: 3,
     label: 'Other',
-    value: 'o'
+    value: genderObj.Other
   }
 ]
 
@@ -20,17 +40,17 @@ export const roleType = [
   {
     id: 1,
     label: 'Super Admin',
-    value: 'super_admin'
+    value: roleTypeObj.SuperAdmin
   },
   {
     id: 2,
     label: 'Artist Manager',
-    value: 'artist_manager'
+    value: roleTypeObj.ArtistManager
   },
   {
     id: 3,
     label: 'Artist',
-    value: 'artist'
+    value: roleTypeObj.Artist
   }
 ]
 
@@ -38,27 +58,27 @@ export const genreList = [
   {
     id: 1,
     label: 'RNB',
-    value: 'rnb'
+    value: genreObj.RNB
   },
   {
     id: 2,
     label: 'Country',
-    value: 'country'
+    value: genreObj.Country
   },
   {
     id: 3,
     label: 'Classic',
-    value: 'classic'
+    value: genreObj.Classic
   },
   {
     id: 4,
     label: 'Rock',
-    value: 'rock'
+    value: genreObj.Rock
   },
   {
     id: 5,
     label: 'Jazz',
-    value: 'jazz'
+    value: genreObj.jazz
   }
 ]
 
@@ -153,29 +173,26 @@ export const songsData = [
     id: 1,
     title: 'dfkdfjdkfjd',
     album_name: 'album1',
-    genre: "rnb"
+    genre: 'jazz'
   },
   {
     id: 2,
     title: 'dfkdfjdkfjd',
     album_name: 'album1',
-    genre: "rnb"
+    genre: 'country'
   },
   {
     id: 3,
     title: 'dfkdfjdkfjd',
     album_name: 'album1',
-    genre: "rnb"
+    genre: 'classic'
   },
   {
     id: 4,
     title: 'dfkdfjdkfjd',
     album_name: 'album1',
-    genre: "rnb"
+    genre: 'rock'
   }
 ]
 
-export const API_BASE = "http://localhost:3000";
-
-
-
+export const API_BASE = 'http://localhost:3000'

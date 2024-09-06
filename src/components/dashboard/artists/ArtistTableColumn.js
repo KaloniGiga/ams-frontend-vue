@@ -1,6 +1,6 @@
 /* eslint-disable no-unused-vars */
-import { h, toRaw } from "vue"
-import ArtistOptions from "./ArtistOptions.vue"
+import { h, toRaw } from 'vue'
+import ArtistOptions from './ArtistOptions.vue'
 
 export const artistColumns = [
   {
@@ -22,7 +22,7 @@ export const artistColumns = [
   {
     id: 'actions',
     cell: ({ row }) => {
-      return h('div', { class: 'relative' }, h(ArtistOptions, { artistData: toRaw(row.original)}))
+      return h('div', { class: 'relative' }, h(ArtistOptions, { artistData: toRaw(row.original) }))
     }
   }
 ]

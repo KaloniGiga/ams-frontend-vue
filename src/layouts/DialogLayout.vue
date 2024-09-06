@@ -14,7 +14,6 @@ const handleDialogOpen = () => {
   dialogStore.resetIsEdit()
   dialogStore.setIsOpen()
 }
-
 </script>
 <template>
   <Dialog v-model:open="isOpen">

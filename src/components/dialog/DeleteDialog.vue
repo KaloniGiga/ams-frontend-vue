@@ -6,7 +6,6 @@ defineProps({
 })
 
 defineEmits(['deleteConfirm', 'deleteCancel'])
-
 </script>
 <template>
   <DialogContent>

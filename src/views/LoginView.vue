@@ -3,6 +3,7 @@ import { ref, computed } from 'vue'
 import { useRouter } from 'vue-router'
 import useAuthStore from '../stores/auth.js'
 import { Button } from '@/components/ui/button/index.js'
+import { toast } from 'vue-sonner';
 
 const router = useRouter()
 const authStore = useAuthStore()
@@ -39,8 +40,9 @@ const handleFormSubmit = async (event) => {
   const response = await authStore.login(formData)
   if (response?.error) {
     console.log(response.error)
+    toast.error("response.error")
   } else {
-    router.push('/dashboard')
+    router.push('/dashboard/user')
     form.reset()
   }
 
@@ -50,7 +52,7 @@ const handleFormSubmit = async (event) => {
 
 <template>
   <form class="authForm" @submit.prevent="handleFormSubmit">
-    <h1 class="formHeading">Welcome Back! Login</h1>
+    <h1 class="text-3xl my-4 text-bold">Welcome Back! Login</h1>
     <label for="email">Email</label>
     <input type="text" class="input" name="email" v-model="form.email.value" />
     <span class="error" v-if="errors.email">{{ errors.email }}</span>
@@ -60,9 +62,9 @@ const handleFormSubmit = async (event) => {
     <span class="error" v-if="errors.password">{{ errors.password }}</span>
 
     <!-- <button class="submitBtn">Submit</button> -->
-    <Button></Button>
+    <Button class="my-4">Submit</Button>
 
-    <p>Don't have a account? <RouterLink to="/register">Register</RouterLink></p>
+    <p>Don't have a account? <RouterLink to="/auth/signup">Signup</RouterLink></p>
   </form>
 </template>
 <style scoped>

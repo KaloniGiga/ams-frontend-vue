@@ -12,6 +12,6 @@ const { onSubmit } = useSongForm()
     <InputUI type="text" name="title" label="Title" />
     <InputUI type="text" name="album_name" label="Album name" />
 
-    <SelectUI placeholder="Enter Genre" name="gender" label="Gender" :select-items="genreList" />
+    <SelectUI placeholder="Enter Genre" name="genre" label="Genre" :select-items="genreList" />
   </FormLayout>
 </template>
